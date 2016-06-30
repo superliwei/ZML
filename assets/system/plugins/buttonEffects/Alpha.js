@@ -1,4 +1,4 @@
-function Alpha(_bt)
+ZML.ButtonEffectMap["alpha"] = function(_bt)
 {
 	if(_bt.data.attr("touchMode") == "true")
 	{
@@ -37,5 +37,3 @@ function Alpha(_bt)
 		}
 	}
 }
-
-ButtonEffectMap["alpha"] = Alpha;

@@ -1,10 +1,10 @@
-Transition.Fly = function()
+ZML.Transition.Fly = function()
 {
 	this.ct0 = null;
 	this.ct1 = null;
 	this.view = null;
 }
-Transition.Fly.prototype.start = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.Fly.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
 	var w = manager.controller.data.attr("width");
@@ -42,7 +42,7 @@ Transition.Fly.prototype.start = function(manager,fromElem,toElem,onComplete)
 	this.view = manager.controller.view;
 }
 
-Transition.Fly.prototype.dispose = function()
+ZML.Transition.Fly.prototype.dispose = function()
 {
 	if(this.ct0)
 	{
@@ -68,19 +68,19 @@ Transition.Fly.prototype.dispose = function()
 	this.view = null;
 }
 
-Transition.FlyIn = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.FlyIn = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "in";
-	Transition.Fly.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Fly.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.FlyIn.prototype = new Transition.Fly();
+ZML.Transition.FlyIn.prototype = new ZML.Transition.Fly();
 
-Transition.FlyOut = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.FlyOut = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "out";
-	Transition.Fly.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Fly.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.FlyOut.prototype = new Transition.Fly();
+ZML.Transition.FlyOut.prototype = new ZML.Transition.Fly();
 
-TransitionMap["flyIn"] = Transition.FlyIn;
-TransitionMap["flyOut"] = Transition.FlyOut;
+ZML.TransitionMap["flyIn"] = ZML.Transition.FlyIn;
+ZML.TransitionMap["flyOut"] = ZML.Transition.FlyOut;

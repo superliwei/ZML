@@ -1,4 +1,4 @@
-BasicCanvas.prototype.alpha = function(value)
+ZML.BasicCanvas.prototype.alpha = function(value)
 {
 	this.view.css("opacity",value);
 	this.view.css("-webkit-opacity",value);

@@ -1,6 +1,6 @@
-Transition.MoveIn = function(){}
+ZML.Transition.MoveIn = function(){}
 
-Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
 	this.from = fromElem;
@@ -27,7 +27,7 @@ Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onComplete)
 		onComplete();
 	}});
 }
-Transition.MoveIn.prototype.dispose = function()
+ZML.Transition.MoveIn.prototype.dispose = function()
 {
 	if(this.from)
 	{
@@ -44,35 +44,35 @@ Transition.MoveIn.prototype.dispose = function()
 	}
 }
 
-Transition.LeftMoveIn = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.LeftMoveIn = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "left";
-	Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.LeftMoveIn.prototype = new Transition.MoveIn();
+ZML.Transition.LeftMoveIn.prototype = new ZML.Transition.MoveIn();
 
-Transition.RightMoveIn = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.RightMoveIn = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "right";
-	Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.RightMoveIn.prototype = new Transition.MoveIn();
+ZML.Transition.RightMoveIn.prototype = new ZML.Transition.MoveIn();
 
-Transition.UpMoveIn = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.UpMoveIn = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "up";
-	Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.UpMoveIn.prototype = new Transition.MoveIn();
+ZML.Transition.UpMoveIn.prototype = new ZML.Transition.MoveIn();
 
-Transition.DownMoveIn = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.DownMoveIn = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "down";
-	Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.MoveIn.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.DownMoveIn.prototype = new Transition.MoveIn();
+ZML.Transition.DownMoveIn.prototype = new ZML.Transition.MoveIn();
 
-TransitionMap["leftMoveIn"] = Transition.LeftMoveIn;
-TransitionMap["rightMoveIn"] = Transition.RightMoveIn;
-TransitionMap["upMoveIn"] = Transition.UpMoveIn;
-TransitionMap["downMoveIn"] = Transition.DownMoveIn;
+ZML.TransitionMap["leftMoveIn"] = ZML.Transition.LeftMoveIn;
+ZML.TransitionMap["rightMoveIn"] = ZML.Transition.RightMoveIn;
+ZML.TransitionMap["upMoveIn"] = ZML.Transition.UpMoveIn;
+ZML.TransitionMap["downMoveIn"] = ZML.Transition.DownMoveIn;

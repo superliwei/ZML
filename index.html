@@ -4,56 +4,53 @@
     <title>ZML</title>
     <meta charset="utf-8">
     <script src="assets/system/libs/jquery/jquery-1.11.1.min.js"></script>
-
-    <script src="assets/system/com/blank/core/Package.js"></script>
     
-    <script src="assets/system/com/blank/core/UserSelectControl.js"></script>
-    <script src="assets/system/com/blank/components/Loading.js"></script>
-    <script src="assets/system/com/blank/core/Preloader.js"></script>
-    <script src="assets/system/com/blank/core/CoreSystem.js"></script>
-    <script src="assets/system/com/blank/core/CoreURL.js"></script>
-    <script src="assets/system/com/blank/core/CoreEvent.js"></script>
-    <script src="assets/system/com/blank/core/Compatible.js"></script>
-    <script src="assets/system/com/blank/core/Client.js"></script>
+    <script src="assets/system/com/blank/zml/ZML.js"></script>
+    <script src="assets/system/com/blank/zml/core/UserSelectControl.js"></script>
+    <script src="assets/system/com/blank/zml/components/Loading.js"></script>
+    <script src="assets/system/com/blank/zml/core/Preloader.js"></script>
+    <script src="assets/system/com/blank/zml/core/CoreURL.js"></script>
+    <script src="assets/system/com/blank/zml/core/CoreEvent.js"></script>
+    <script src="assets/system/com/blank/zml/core/Compatible.js"></script>
 
-    <script src="assets/system/com/blank/events/Event.js"></script>
-    <script src="assets/system/com/blank/events/CanvasEvent.js"></script>
-    <script src="assets/system/com/blank/events/MovieClipEvent.js"></script>
-    <script src="assets/system/com/blank/events/NavigationEvent.js"></script>
-    <script src="assets/system/com/blank/events/Events.js"></script>
-    <script src="assets/system/com/blank/events/VideoEvent.js"></script>
+    <script src="assets/system/com/blank/zml/events/Event.js"></script>
+    <script src="assets/system/com/blank/zml/events/CanvasEvent.js"></script>
+    <script src="assets/system/com/blank/zml/events/MovieClipEvent.js"></script>
+    <script src="assets/system/com/blank/zml/events/NavigationEvent.js"></script>
+    <script src="assets/system/com/blank/zml/events/Events.js"></script>
+    <script src="assets/system/com/blank/zml/events/VideoEvent.js"></script>
     
 
-    <script src="assets/system/com/blank/events/BroadcastCenter.js"></script>
-    <script src="assets/system/com/blank/core/AssetsManager.js"></script>
+    <script src="assets/system/com/blank/zml/events/BroadcastCenter.js"></script>
+    <script src="assets/system/com/blank/zml/core/AssetsManager.js"></script>
 
-    <script src="assets/system/com/blank/core/ButtonEffectMap.js"></script>
+    <script src="assets/system/com/blank/zml/core/ButtonEffectMap.js"></script>
 
-    <script src="assets/system/com/blank/components/ImageAsset.js"></script>
+    <script src="assets/system/com/blank/zml/components/ImageAsset.js"></script>
 
-    <script src="assets/system/com/blank/components/BasicCanvas.js"></script>
-    <script src="assets/system/com/blank/components/BasicMovieClip.js"></script>
-    <script src="assets/system/com/blank/components/Application.js"></script>
-    <script src="assets/system/com/blank/components/BasicComponent.js"></script>
-    <script src="assets/system/com/blank/components/HtmlCanvas.js"></script>
-    <script src="assets/system/com/blank/components/ImageCanvas.js"></script>
-    <script src="assets/system/com/blank/components/Button.js"></script>
-    <script src="assets/system/com/blank/components/ImageButton.js"></script>
-    <script src="assets/system/com/blank/components/Label.js"></script>
-    <script src="assets/system/com/blank/components/VideoCanvas.js"></script>
+    <script src="assets/system/com/blank/zml/components/BasicCanvas.js"></script>
+    <script src="assets/system/com/blank/zml/components/BasicMovieClip.js"></script>
+    <script src="assets/system/com/blank/zml/components/Application.js"></script>
+    <script src="assets/system/com/blank/zml/components/BasicComponent.js"></script>
+    <script src="assets/system/com/blank/zml/components/HtmlCanvas.js"></script>
+    <script src="assets/system/com/blank/zml/components/ImageCanvas.js"></script>
+    <script src="assets/system/com/blank/zml/components/Button.js"></script>
+    <script src="assets/system/com/blank/zml/components/ImageButton.js"></script>
+    <script src="assets/system/com/blank/zml/components/Label.js"></script>
+    <script src="assets/system/com/blank/zml/components/VideoCanvas.js"></script>
 
-    <script src="assets/system/com/blank/core/navigationManagers/transition/None.js"></script>
-    <script src="assets/system/com/blank/core/navigationManagers/transition/TransitionMap.js"></script>
-    <script src="assets/system/com/blank/core/navigationManagers/NavigationManagerBase.js"></script>
-    <script src="assets/system/com/blank/core/navigationManagers/DefaultNavigationManager.js"></script>
-    <script src="assets/system/com/blank/core/navigationManagers/BasicNavigationManager.js"></script>
-    <script src="assets/system/com/blank/core/NavigationManagerMap.js"></script>
-    <script src="assets/system/com/blank/core/NavigationController.js"></script>
+    <script src="assets/system/com/blank/zml/core/navigationManagers/transition/None.js"></script>
+    <script src="assets/system/com/blank/zml/core/navigationManagers/transition/TransitionMap.js"></script>
+    <script src="assets/system/com/blank/zml/core/navigationManagers/NavigationManagerBase.js"></script>
+    <script src="assets/system/com/blank/zml/core/navigationManagers/DefaultNavigationManager.js"></script>
+    <script src="assets/system/com/blank/zml/core/navigationManagers/BasicNavigationManager.js"></script>
+    <script src="assets/system/com/blank/zml/core/NavigationManagerMap.js"></script>
+    <script src="assets/system/com/blank/zml/core/NavigationController.js"></script>
 
-    <script src="assets/system/com/blank/core/FactoryMap.js"></script>
+    <script src="assets/system/com/blank/zml/core/FactoryMap.js"></script>
 
     <script type="text/javascript">
-        CoreSystem.start({width:800,height:540});
+        ZML.init({width:800,height:540});
     </script>
     
   </head>

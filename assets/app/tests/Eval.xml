@@ -6,28 +6,28 @@
 			<Label x="10" y="10" padding="3px" text="Math.random" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
+					var info = ZML.find("#evalInfo");
 					info.view.text(Math.random()*10);
 				</eval>
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="40" padding="3px" text="$canvas(&quot;#canvasId&quot;)" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="40" padding="3px" text="ZML.find(&quot;#canvasId&quot;)" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
-					var canvas = $canvas("#mainNav");
+					var info = ZML.find("#evalInfo");
+					var canvas = ZML.find("#mainNav");
 					var str = canvas.data.prop("outerHTML");
 					info.view.text(str);
 				</eval>
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="70" padding="3px" text="$canvas(&quot;Label&quot;)" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="70" padding="3px" text="ZML.find(&quot;Label&quot;)" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
-					var arr = $canvas("Label");
+					var info = ZML.find("#evalInfo");
+					var arr = ZML.find("Label");
 					var str="";
 					$.each(arr,function(i){
 						str+=arr[i].data.prop("outerHTML");
@@ -37,11 +37,11 @@
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="100" padding="3px" text="$canvas(&quot;Label,background:#333333&quot;)" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="100" padding="3px" text="ZML.find(&quot;Label,background:#333333&quot;)" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
-					var arr = $canvas("Label,background:#333333");
+					var info = ZML.find("#evalInfo");
+					var arr = ZML.find("Label,background:#333333");
 					var str="";
 					$.each(arr,function(i){
 						str+=arr[i].data.prop("outerHTML");
@@ -51,11 +51,11 @@
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="130" padding="3px" text="$canvas(&quot;Label,background:#333333,text:eval&quot;)" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="130" padding="3px" text="ZML.find(&quot;Label,background:#333333,text:eval&quot;)" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
-					var arr = $canvas("Label,background:#333333,text:eval");
+					var info = ZML.find("#evalInfo");
+					var arr = ZML.find("Label,background:#333333,text:eval");
 					var str="";
 					$.each(arr,function(i){
 						str+=arr[i].data.prop("outerHTML");
@@ -65,11 +65,11 @@
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="160" padding="3px" text="$canvas(&quot;Label,text:Math.random&quot;)" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="160" padding="3px" text="ZML.find(&quot;Label,text:Math.random&quot;)" border-radius="3px" background="#ffffff" />
 			<Click>
 				<eval>
-					var info = $canvas("#evalInfo");
-					var arr = $canvas("Label,text:Math.random");
+					var info = ZML.find("#evalInfo");
+					var arr = ZML.find("Label,text:Math.random");
 					var str="";
 					$.each(arr,function(i){
 						str+=arr[i].data.prop("outerHTML");

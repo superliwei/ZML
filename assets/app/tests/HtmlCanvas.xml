@@ -26,9 +26,9 @@
 					alert("hello javascript!");
 				});
 				$(".bt").eq(1).click(function(){
-					BroadcastCenter.sendEvent("<events><Alert msg=\"event from HtmlCanvas!\" /></events>");
+					ZML.BroadcastCenter.sendEvent("<events><Alert msg=\"event from HtmlCanvas!\" /></events>");
 				});
-				BroadcastCenter.addEventListener(CanvasEvent.prototype.type,function(event,data){
+				ZML.BroadcastCenter.addEventListener(ZML.CanvasEvent.prototype.type,function(event,data){
 					if($(data).attr("param")!=undefined && $(data).attr("param")=="htmlCanvas")
 					{
 						alert("HtmlCanvas:i got your event!");
@@ -58,7 +58,7 @@
 					var str = "<events><CanvasEvent id=\"htmlCanvas0\" action=\"set\" html=\"content\">";
 					str+="<content>"+contents[idx]+"</content>";
 					str+="</CanvasEvent></events>";
-					BroadcastCenter.sendEvent(str);
+					ZML.BroadcastCenter.sendEvent(str);
 				}
 			</script>
 			<div class="test">hello css!</div>

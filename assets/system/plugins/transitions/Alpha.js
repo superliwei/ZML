@@ -1,4 +1,4 @@
-Transition.Alpha = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.Alpha = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
 	this.from = fromElem;
@@ -11,7 +11,7 @@ Transition.Alpha = function(manager,fromElem,toElem,onComplete)
 	}});
 }
 
-Transition.Alpha.prototype.dispose = function()
+ZML.Transition.Alpha.prototype.dispose = function()
 {
 	if(this.from)
 	{
@@ -28,4 +28,4 @@ Transition.Alpha.prototype.dispose = function()
 	}
 }
 
-TransitionMap["alpha"] = Transition.Alpha;
+ZML.TransitionMap["alpha"] = ZML.Transition.Alpha;

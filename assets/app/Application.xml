@@ -20,11 +20,11 @@
 
 	<Events id="updatePageInfo">
 		<eval>
-			var mainNav = $canvas("#mainNav");
+			var mainNav = ZML.find("#mainNav");
 			var current = mainNav.defaultIdx+1;
 			var total = mainNav.managerInstance.children.length;
 			var str=current+"/"+total;
-			var navInfo = $canvas("#navInfo");
+			var navInfo = ZML.find("#navInfo");
 			navInfo.view.text(str);
 		</eval>
 	</Events>

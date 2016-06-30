@@ -1,4 +1,4 @@
-Transition.Reverse = function()
+ZML.Transition.Reverse = function()
 {
 	this.ct0 = null;
 	this.ct1 = null;
@@ -6,7 +6,7 @@ Transition.Reverse = function()
 	this.view = null;
 }
 
-Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
 	var w = manager.controller.data.attr("width");
@@ -64,7 +64,7 @@ Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComplete
 	this.view = manager.controller.view;
 }
 
-Transition.Reverse.prototype.dispose = function()
+ZML.Transition.Reverse.prototype.dispose = function()
 {
 	if(this.ct0)
 	{
@@ -95,35 +95,35 @@ Transition.Reverse.prototype.dispose = function()
 	this.view = null;
 }
 
-Transition.LeftReverse = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.LeftReverse = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "left";
-	Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.LeftReverse.prototype = new Transition.Reverse();
+ZML.Transition.LeftReverse.prototype = new ZML.Transition.Reverse();
 
-Transition.RightReverse = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.RightReverse = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "right";
-	Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.RightReverse.prototype = new Transition.Reverse();
+ZML.Transition.RightReverse.prototype = new ZML.Transition.Reverse();
 
-Transition.UpReverse = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.UpReverse = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "up";
-	Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.UpReverse.prototype = new Transition.Reverse();
+ZML.Transition.UpReverse.prototype = new ZML.Transition.Reverse();
 
-Transition.DownReverse = function(manager,fromElem,toElem,onComplete)
+ZML.Transition.DownReverse = function(manager,fromElem,toElem,onComplete)
 {
 	manager.direction = "down";
-	Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
+	ZML.Transition.Reverse.prototype.start.call(this,manager,fromElem,toElem,onComplete);
 }
-Transition.DownReverse.prototype = new Transition.Reverse();
+ZML.Transition.DownReverse.prototype = new ZML.Transition.Reverse();
 
-TransitionMap["leftReverse"] = Transition.LeftReverse;
-TransitionMap["rightReverse"] = Transition.RightReverse;
-TransitionMap["upReverse"] = Transition.UpReverse;
-TransitionMap["downReverse"] = Transition.DownReverse;
+ZML.TransitionMap["leftReverse"] = ZML.Transition.LeftReverse;
+ZML.TransitionMap["rightReverse"] = ZML.Transition.RightReverse;
+ZML.TransitionMap["upReverse"] = ZML.Transition.UpReverse;
+ZML.TransitionMap["downReverse"] = ZML.Transition.DownReverse;
