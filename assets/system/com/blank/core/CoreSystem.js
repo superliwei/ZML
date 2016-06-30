@@ -7,6 +7,7 @@ CoreSystem.start = function(info)
 		Preloader.init();
 		AssetsManager.init();
 		Application.init();
+		Client.init();
 	});
 }
 

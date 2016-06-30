@@ -21,6 +21,7 @@ java -jar compiler.jar ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\core\CoreURL.js ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\core\CoreEvent.js ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\core\Compatible.js ^
+--js %appRoot%%releaseDir%\assets\system\com\blank\core\Client.js ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\events\Event.js ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\events\CanvasEvent.js ^
 --js %appRoot%%releaseDir%\assets\system\com\blank\events\MovieClipEvent.js ^

@@ -1,0 +1,17 @@
+{
+  "main": "release.html",
+  "name": "zml-demo",
+  "window":
+  {
+  	"width":817,
+  	"height":557,
+  	"toolbar":false,
+  	"resizable":true,
+    "frame":true,
+    "fullscreen":false
+  },
+  "webkit":
+  {
+  	"plugin":true
+  }
+}
