@@ -1,4 +1,4 @@
 ZML.NavigationManagerMap = {
-	"DefaultNavigationManager":ZML.DefaultNavigationManager,
-	"BasicNavigationManager":ZML.BasicNavigationManager
+	"DefaultNavigationManager"  : ZML.DefaultNavigationManager,
+	"BasicNavigationManager"    : ZML.BasicNavigationManager
 };

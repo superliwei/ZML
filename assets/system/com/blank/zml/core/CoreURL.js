@@ -1,11 +1,6 @@
-ZML.CoreURL = (function(){
-	
-	var CoreURL = {};
-	
-	CoreURL.app = "assets/app/";
-	CoreURL.system = "assets/system/";
-	CoreURL.systemConfig = "config.xml";
-	CoreURL.appRoot = "Application.xml";
-	
-	return CoreURL;
-})();
+ZML.CoreURL = {
+	app          : 'assets/app/',
+	system       : 'assets/system/',
+	systemConfig : 'config.xml',
+	appRoot      : 'Application.xml'
+};
