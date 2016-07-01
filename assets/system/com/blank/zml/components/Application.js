@@ -11,10 +11,7 @@ ZML.Application = (function(){
 	
 	Application.instance = function()
 	{
-		if(Application._instance == null)
-		{
-			Application._instance = new Application();
-		}
+		if(Application._instance == null)Application._instance = new Application();
 		return Application._instance;
 	}
 	
@@ -37,27 +34,16 @@ ZML.Application = (function(){
 		if(info!=undefined)
 		{
 			$(document.body).css("margin",0);
-			$(document.body).css("overflow-x","hidden");
-			$(document.body).css("overflow-y","hidden");
+			$(document.body).css("overflow","hidden");
 	
 			info.view = $("<div>");
-			info.view.css("width",info.width+"px");
-			info.view.css("height",info.height+"px");
-			if(info.background!=undefined)
-			{
-				info.view.css("background",info.background);
-			}
-			else
-			{
-				info.view.css("background","#000000");
-			}
+			info.view.width(info.width);
+			info.view.height(info.height);
+			info.view.css("background",info.background != undefined ? info.background : "#000");
 			info.view.appendTo("body");
 			Application._container_info = info;
 	
-			if(info.scale == undefined)
-			{
-				Application.resizeWithBrowserSize();
-			}
+			if(info.scale == undefined)Application.resizeWithBrowserSize();
 		}
 		else
 		{

@@ -20,6 +20,10 @@
 		<script src="assets/system/plugins/Transform.js" />
 		<script src="assets/system/plugins/Alpha.js" />
 		<script src="assets/system/plugins/Tween.js" />
+		<!-- ECharts -->
+		<script src="assets/system/libs/echarts/echarts.min.js" />
+		<script src="assets/system/libs/echarts/china.js" />
+		<script src="assets/system/plugins/ECharts.js" />
 		<!-- ButtonEffects -->
 		<script src="assets/system/plugins/buttonEffects/Alpha.js" />
 		<!-- transitions -->

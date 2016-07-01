@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Application>
 	<NavigationController id="mainNav" width="800" height="540" manager="BasicNavigationManager">
+		<BasicComponent url="tests/ECharts.xml" />
 		<BasicComponent url="tests/ImageCanvas.xml" />
 		<BasicComponent url="tests/BasicCanvas.xml" />
 		<BasicComponent url="tests/Transitions.xml" />
