@@ -15,57 +15,20 @@ ZML.Application = (function(){
 		return Application._instance;
 	}
 	
-	Application.init = function()
+	Application.init = function(info)
 	{
+		var app = Application.instance();
+		app.container = new ZML.RootContainer(info);
+		
 		ZML.BroadcastCenter.addEventListener(ZML.CoreEvent.APP_DATA_READY,function(){
-			Application.instance().view.one(ZML.BasicCanvas.CONSTRUCT_COMPLETE,function(){
+			app.view.one(ZML.BasicCanvas.CONSTRUCT_COMPLETE,function(){
 				ZML.AssetsManager.assetsLoadStart();
 			});
-			Application.instance().construct($(ZML.AssetsManager.appData).last());
+			app.construct($(ZML.AssetsManager.appData).last());
 		});
 		ZML.BroadcastCenter.addEventListener(ZML.CoreEvent.ASSETS_READY,function(){
-			Application.instance().view.appendTo(Application.container().view);
+			app.view.appendTo(app.container.contentLayer);
 		});
-	}
-	
-	Application._container_info = null;
-	Application.container = function(info)
-	{
-		if(info!=undefined)
-		{
-			$(document.body).css("margin",0);
-			$(document.body).css("overflow","hidden");
-	
-			info.view = $("<div>");
-			info.view.width(info.width);
-			info.view.height(info.height);
-			info.view.css("background",info.background != undefined ? info.background : "#000");
-			info.view.appendTo("body");
-			Application._container_info = info;
-	
-			if(info.scale == undefined)Application.resizeWithBrowserSize();
-		}
-		else
-		{
-			return Application._container_info;
-		}
-	}
-	
-	Application.resizeWithBrowserSize = function()
-	{
-		$(window).resize(resizeHandler);
-		resizeHandler(null);
-		function resizeHandler(e)
-		{
-			var w = Application.container().width;
-			var h = Application.container().height;
-			var maxW = $(window).width();
-			var maxH = $(window).height();
-			var ts = w/maxW > h/maxH ? maxW/w : maxH/h;
-			var tx = (maxW - w)*0.5;
-			var ty = (maxH - h)*0.5;
-			Application.container().view.css("transform","matrix("+ts+", 0, 0, "+ts+","+tx+","+ty+")");
-		}
 	}
 	
 	return Application;

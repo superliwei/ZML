@@ -81,7 +81,6 @@ ZML.AssetsManager = (function(){
 			var appUrl = ZML.CoreURL.app+ZML.CoreURL.appRoot;
 			$.get(appUrl,function(data){
 				AssetsManager.appData = data;
-				ZML.BroadcastCenter.dispatchEvent(new ZML.Event(ZML.CoreEvent.APP_DATA_READY));
 				ZML.Preloader.appendProgress(5);
 				onComplete();
 			},"text");
@@ -89,7 +88,9 @@ ZML.AssetsManager = (function(){
 	
 		loadConfig(function(){
 			loadJS_and_CSS(function(){
-				loadAppData(function(){});
+				loadAppData(function(){
+					ZML.BroadcastCenter.dispatchEvent(new ZML.Event(ZML.CoreEvent.APP_DATA_READY));
+				});
 			});
 		});
 	}

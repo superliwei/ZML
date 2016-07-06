@@ -27,6 +27,7 @@ java -jar compiler.jar ^
 --js %releaseDir%\assets\system\com\blank\zml\events\BroadcastCenter.js ^
 --js %releaseDir%\assets\system\com\blank\zml\core\AssetsManager.js ^
 --js %releaseDir%\assets\system\com\blank\zml\core\ButtonEffectMap.js ^
+--js %releaseDir%\assets\system\com\blank\zml\components\RootContainer.js ^
 --js %releaseDir%\assets\system\com\blank\zml\components\ImageAsset.js ^
 --js %releaseDir%\assets\system\com\blank\zml\components\BasicCanvas.js ^
 --js %releaseDir%\assets\system\com\blank\zml\components\BasicMovieClip.js ^

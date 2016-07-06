@@ -4,10 +4,9 @@ ZML.init = function(info)
 {
 	$(document).ready(function(){
 		ZML.UserSelectControl.init();
-		ZML.Application.container(info);
 		ZML.Preloader.init();
+		ZML.Application.init(info);
 		ZML.AssetsManager.init();
-		ZML.Application.init();
 	});
 }
 
