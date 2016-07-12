@@ -25,10 +25,10 @@ ZML.BasicComponent = (function(){
 		var Class = ZML.FactoryMap[nodeName];
 		var node = new Class();
 		node.view.bind(ZML.BasicCanvas.CONSTRUCT_COMPLETE,function(){
+			node.view.prependTo(self.view);
 			self.childrenConstructComplete();
 		});
 		node.construct(nodeData);
-		node.view.prependTo(self.view);
 	}
 	
 	BasicComponent.prototype.childrenConstructComplete = function()

@@ -28,6 +28,7 @@ ZML.Application = (function(){
 		});
 		ZML.BroadcastCenter.addEventListener(ZML.CoreEvent.ASSETS_READY,function(){
 			app.view.appendTo(app.container.contentLayer);
+			ZML.BroadcastCenter.sendEvent(app.data.children("Add").prop("outerHTML"));
 		});
 	}
 	
