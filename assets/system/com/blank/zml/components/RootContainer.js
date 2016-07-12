@@ -10,6 +10,7 @@ ZML.RootContainer = function(info)
 	this.contentLayer = $("<div>",{style:"position:absolute;"});
 	this.contentLayer.appendTo(this.view);
 	
+	if(info.loading!=undefined)ZML.Preloader.loading.setColor(info.loading);
 	ZML.Preloader.loading.view.appendTo(this.view);
 	
 	$(window).resize(resizeHandler);
@@ -34,6 +35,8 @@ ZML.RootContainer = function(info)
 		}
 		else
 		{
+			self.contentLayer.width('100%');
+			self.contentLayer.height('100%');
 			self.view.width('100%');
 			self.view.height('100%');
 		}
