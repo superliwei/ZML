@@ -5,7 +5,7 @@ ZML.Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onCompl
 	var self = this;
 	this.from = fromElem;
 	this.to = toElem;
-	$(toElem).appendTo(manager.controller.view);
+	$(toElem).show();
 	var w = manager.controller.data.attr("width");
 	var h = manager.controller.data.attr("height");
 	var dc = [];
@@ -31,7 +31,7 @@ ZML.Transition.MoveIn.prototype.dispose = function()
 {
 	if(this.from)
 	{
-		$(this.from).detach();
+		$(this.from).hide();
 		TweenLite.to(this.from,0,{x:0,y:0});
 		TweenLite.killTweensOf(this.from);
 		this.from = null;

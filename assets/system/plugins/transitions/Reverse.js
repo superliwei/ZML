@@ -22,6 +22,7 @@ ZML.Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComp
 	ct1.css("position","absolute");
 	$(toElem).css("left",-w*0.5+"px");
 	$(toElem).css("top",-h*0.5+"px");
+	$(toElem).show();
 	$(toElem).appendTo(ct1);
 
 	var container = $("<div>");
@@ -73,7 +74,7 @@ ZML.Transition.Reverse.prototype.dispose = function()
 		from.css("left","0px");
 		from.css("top","0px");
 		from.appendTo(this.view);
-		from.detach();
+		from.hide();
 		this.ct0.remove();
 		this.ct0 = null;
 	}

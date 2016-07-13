@@ -2,8 +2,8 @@ ZML.Transition = {};
 
 ZML.Transition.None = function(manager,fromElem,toElem,onComplete)
 {
-	$(fromElem).detach();
-	$(toElem).prependTo(manager.controller.view);
+	$(fromElem).hide();
+	$(toElem).show();
 	onComplete();
 }
 

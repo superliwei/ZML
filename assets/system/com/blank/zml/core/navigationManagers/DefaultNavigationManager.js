@@ -14,9 +14,9 @@ ZML.DefaultNavigationManager = (function(){
 		for(var i=0;i<len;i++)
 		{
 			var child = this.children[i];
-			$(child).detach();
+			$(child).hide();
 		}
-		$(this.children[this.controller.defaultIdx]).prependTo(this.controller.view);
+		$(this.children[this.controller.defaultIdx]).show();
 	}
 	
 	DefaultNavigationManager.prototype.showIdx = function(_idx)
@@ -49,4 +49,3 @@ ZML.DefaultNavigationManager = (function(){
 	return DefaultNavigationManager;
 	
 })();
-
