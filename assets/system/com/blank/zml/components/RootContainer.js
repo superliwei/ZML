@@ -31,7 +31,7 @@ ZML.RootContainer = function(info)
 			self.view.css("top",ty);
 			self.view.width(w*ts);
 			self.view.height(h*ts);
-			self.contentLayer.css("transform","matrix("+ts+", 0, 0, "+ts+",0,0)");
+			self.contentLayer.css("zoom",ts);
 		}
 		else
 		{
