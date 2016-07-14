@@ -16,8 +16,11 @@ ZML.FactoryMap["ECHARTS"] = (function(){
 	ECharts.prototype.init = function()
 	{
 		var self = this;
+		var rootLayer = $("<div>",{style:"position:absolute;"});
+		rootLayer.prependTo(this.view);
 		var container = $("<div>",{style:"position:absolute;"});
-		container.prependTo(this.view);
+		container.prependTo(rootLayer);
+		
 		
 		if(this.data.fixed == undefined || this.data.fixed == "true")//修正鼠标定位的问题
 		{
@@ -47,9 +50,19 @@ ZML.FactoryMap["ECHARTS"] = (function(){
 		
 		function resizeHandler(e)
 		{
-			var ts = ZML.Application.instance().container.contentLayer.css("zoom");
+			var ts = ZML.Application.instance().container.contentLayer.data("scale");
 			ts = Number(ts);
-			container.css("zoom",1/ts);
+			
+			switch(ZML.Application.instance().container.scaleStyle)
+			{
+				case "zoom":
+					rootLayer.css("zoom",1/ts);
+				break;
+				case "transform":
+					rootLayer.css("transform","matrix("+1/ts+",0,0,"+1/ts+",0,0)");
+				break;
+			}
+			
 			container.width(self.view.innerWidth()*ts);
 			container.height(self.view.innerHeight()*ts);
 			if(chart != undefined)chart.resize();

@@ -13,6 +13,8 @@ ZML.RootContainer = function(info)
 	if(info.loading!=undefined)ZML.Preloader.loading.setColor(info.loading);
 	ZML.Preloader.loading.view.appendTo(this.view);
 	
+	this.scaleStyle = info.scaleStyle == undefined ? "transform" : info.scaleStyle;
+	
 	$(window).resize(resizeHandler);
 	resizeHandler(null);
 	
@@ -31,7 +33,22 @@ ZML.RootContainer = function(info)
 			self.view.css("top",ty);
 			self.view.width(w*ts);
 			self.view.height(h*ts);
-			self.contentLayer.css("zoom",ts);
+			/**
+			 * 注意:
+			 * zoom缩放不会缩放文字
+			 * transform缩放整个画布
+			 */
+			self.contentLayer.data("scale",ts);
+			
+			switch(self.scaleStyle)
+			{
+				case "zoom":
+					self.contentLayer.css("zoom",ts);
+				break;
+				case "transform":
+					self.contentLayer.css("transform","matrix("+ts+",0,0,"+ts+",0,0)");
+				break;
+			}
 		}
 		else
 		{
