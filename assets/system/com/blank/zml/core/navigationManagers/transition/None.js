@@ -2,8 +2,8 @@ ZML.Transition = {};
 
 ZML.Transition.None = function(manager,fromElem,toElem,onComplete)
 {
-	$(fromElem).hide();
-	$(toElem).show();
+	$(fromElem).css("visibility","hidden");
+	$(toElem).css("visibility","visible");
 	onComplete();
 }
 

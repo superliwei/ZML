@@ -14,9 +14,9 @@ ZML.DefaultNavigationManager = (function(){
 		for(var i=0;i<len;i++)
 		{
 			var child = this.children[i];
-			$(child).hide();
+			$(child).css("visibility","hidden");
 		}
-		$(this.children[this.controller.defaultIdx]).show();
+		$(this.children[this.controller.defaultIdx]).css("visibility","visible");
 	}
 	
 	DefaultNavigationManager.prototype.showIdx = function(_idx)
