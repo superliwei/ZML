@@ -9,26 +9,25 @@ ZML.Transition.Reverse = function()
 ZML.Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
-	var w = manager.controller.data.attr("width");
-	var h = manager.controller.data.attr("height");
+	var w = manager.controller.view.outerWidth();
+	var h = manager.controller.view.outerHeight();
 
 	var ct0 = $("<div>");
 	ct0.css("position","absolute");
-	$(fromElem).css("left",-w*0.5+"px");
-	$(fromElem).css("top",-h*0.5+"px");
 	$(fromElem).appendTo(ct0);
+	ct0.outerWidth(w);
+	ct0.outerHeight(h);
 
 	var ct1 = $("<div>");
 	ct1.css("position","absolute");
-	$(toElem).css("left",-w*0.5+"px");
-	$(toElem).css("top",-h*0.5+"px");
 	$(toElem).css("visibility","visible");
 	$(toElem).appendTo(ct1);
+	ct1.outerWidth(w);
+	ct1.outerHeight(h);
 
 	var container = $("<div>");
 	container.css("position","absolute");
-	container.css("left",w*0.5+"px");
-	container.css("top",h*0.5+"px");
+	container.css("pointer-events","none");
 	container.appendTo(manager.controller.view);
 	ct0.appendTo(container);
 
@@ -49,10 +48,13 @@ ZML.Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComp
 	var ty1 = dic[manager.direction].ty1;
 
 	ct1.appendTo(container);
+	ct1.css("opacity",0);
+	
+	TweenLite.set(container,{perspective:w});
 	TweenLite.to(ct1,0,{rotationX:tx0,rotationY:ty0,z:tz});
-
-	TweenLite.set(container,{perspective:500});
 	TweenLite.fromTo(ct0,time,{rotationX:fx0,rotationY:fy0,z:0},{rotationX:fx1,rotationY:fy1,z:tz,ease:Expo.easeIn,onComplete:function(){
+		ct0.css("opacity",0);
+		ct1.css("opacity",1);
 		TweenLite.to(ct1,time,{rotationX:tx1,rotationY:ty1,z:0,ease:Expo.easeOut,onComplete:function(){
 			self.dispose();
 			onComplete();

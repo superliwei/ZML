@@ -96,6 +96,10 @@ java -jar compiler.jar ^
 --js %releaseDir%\assets\system\plugins\transitions\Reverse.js ^
 --js_output_file %tmpPlugin%transitions\Reverse.js
 
+java -jar compiler.jar ^
+--js %releaseDir%\assets\system\plugins\ECharts.js ^
+--js_output_file %tmpPlugin%ECharts.js
+
 rmdir %releaseDir%\assets\system\plugins /s/q
 ren %tmpPlugin% plugins
 rmdir %releaseDir%\assets\system\com /s/q

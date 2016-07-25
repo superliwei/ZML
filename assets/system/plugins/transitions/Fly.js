@@ -7,24 +7,26 @@ ZML.Transition.Fly = function()
 ZML.Transition.Fly.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
-	var w = manager.controller.data.attr("width");
-	var h = manager.controller.data.attr("height");
+	
+	var w = manager.controller.view.outerWidth();
+	var h = manager.controller.view.outerHeight();
+	
 	var ct0 = $("<div>");
 	ct0.css("position","absolute");
-	$(fromElem).css("left",-w*0.5+"px");
-	$(fromElem).css("top",-h*0.5+"px");
+	ct0.css("pointer-events","none");
 	$(fromElem).appendTo(ct0);
-	ct0.css("left",w*0.5+"px");
-	ct0.css("top",h*0.5+"px");
+	
+	ct0.outerWidth(w);
+	ct0.outerHeight(h);
 
 	var ct1 = $("<div>");
 	ct1.css("position","absolute");
-	$(toElem).css("left",-w*0.5+"px");
-	$(toElem).css("top",-h*0.5+"px");
+	ct1.css("pointer-events","none");
 	$(toElem).css("visibility","visible");
 	$(toElem).appendTo(ct1);
-	ct1.css("left",w*0.5+"px");
-	ct1.css("top",h*0.5+"px");
+	
+	ct1.outerWidth(w);
+	ct1.outerHeight(h);
 
 	ct0.appendTo(manager.controller.view);
 	ct1[manager.direction=="in"?"appendTo":"prependTo"](manager.controller.view);

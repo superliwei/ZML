@@ -5,9 +5,11 @@ ZML.Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onCompl
 	var self = this;
 	this.from = fromElem;
 	this.to = toElem;
+	$(this.from).css("pointer-events","none");
+	$(this.to).css("pointer-events","none");
 	$(toElem).css("visibility","visible");
-	var w = manager.controller.data.attr("width");
-	var h = manager.controller.data.attr("height");
+	var w = manager.controller.view.outerWidth();
+	var h = manager.controller.view.outerHeight();
 	var dc = [];
 	dc["left"] = {from_x:0,from__x:w,from_y:0,from__y:0,to_x:-w,to__x:0,to_y:0,to__y:0};
 	dc["right"] = {from_x:0,from__x:-w,from_y:0,from__y:0,to_x:w,to__x:0,to_y:0,to__y:0};
@@ -31,6 +33,7 @@ ZML.Transition.MoveIn.prototype.dispose = function()
 {
 	if(this.from)
 	{
+		$(this.from).css("pointer-events","");
 		$(this.from).css("visibility","hidden");
 		TweenLite.to(this.from,0,{x:0,y:0});
 		TweenLite.killTweensOf(this.from);
@@ -38,6 +41,7 @@ ZML.Transition.MoveIn.prototype.dispose = function()
 	}
 	if(this.to)
 	{
+		$(this.to).css("pointer-events","");
 		TweenLite.to(this.to,0,{x:0,y:0});
 		TweenLite.killTweensOf(this.to);
 		this.to = null;
