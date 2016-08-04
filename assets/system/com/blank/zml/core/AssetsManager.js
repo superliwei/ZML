@@ -52,19 +52,24 @@ ZML.AssetsManager = (function(){
 	
 			function loadJS(_idx,_onComplete)
 			{
+				//尝试了多种加载JS的方式，目前这是最完美的方式.
 				var jsUrl = $(list[_idx]).attr("src");
-				$.getScript(jsUrl,function(){
+				var scriptElm = document.createElement("script");
+				scriptElm.src = jsUrl;
+				document.getElementsByTagName('head')[0].appendChild(scriptElm);
+				scriptElm.onload = function()
+				{
 					_onComplete(_idx);
-				});
+				}
 			}
 	
 			function loadCSS(_idx,_onComplete)
 			{
-				var cssUrl = $(list[_idx]).attr("href");
-				$.get(cssUrl,function(data){
-					$(list[_idx]).appendTo("head");
+				var linkNode = $(list[_idx]);
+				linkNode.get(0).onload = function(){
 					_onComplete(_idx);
-				});
+				}
+				linkNode.appendTo('head');
 			}
 	
 			function completeHandler(_idx)

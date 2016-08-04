@@ -74,21 +74,15 @@
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
-			<Label x="10" y="279" padding="3px" text="media/movie.mp4" border-radius="3px" background="#ffffff" />
-			<Click>
-				<CanvasEvent id="myvideo" action="set" src="media/movie.mp4" />
-			</Click>
-		</Button>
-		<Button effect="alpha" touchMode="true">
-			<Label x="140" y="279" padding="3px" text="media/kuga.mp4" border-radius="3px" background="#ffffff" />
-			<Click>
-				<CanvasEvent id="myvideo" action="set" src="media/kuga.mp4" />
-			</Click>
-		</Button>
-		<Button effect="alpha" touchMode="true">
-			<Label x="262" y="279" padding="3px" text="media/1.mp3" border-radius="3px" background="#ffffff" />
+			<Label x="10" y="279" padding="3px" text="media/1.mp3" border-radius="3px" background="#ffffff" />
 			<Click>
 				<CanvasEvent id="myvideo" action="set" src="media/1.mp3" />
+			</Click>
+		</Button>
+		<Button effect="alpha" touchMode="true">
+			<Label x="108" y="279" padding="3px" text="media/kuga.mp4" border-radius="3px" background="#ffffff" />
+			<Click>
+				<CanvasEvent id="myvideo" action="set" src="media/kuga.mp4" />
 			</Click>
 		</Button>
 		<Button effect="alpha" touchMode="true">
