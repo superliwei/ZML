@@ -43,6 +43,7 @@ ZML.ImageCanvas = (function(){
 	
 	ImageCanvas.prototype.addImage = function(image)
 	{
+		image.attr("ondragstart","return false;");
 		this.__image.view = image;
 	
 		image.css("position","absolute");
