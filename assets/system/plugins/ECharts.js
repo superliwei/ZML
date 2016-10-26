@@ -21,7 +21,6 @@ ZML.FactoryMap["ECHARTS"] = (function(){
 		var container = $("<div>",{style:"position:absolute;"});
 		container.prependTo(rootLayer);
 		
-		
 		if(this.data.fixed == undefined || this.data.fixed == "true")//修正鼠标定位的问题
 		{
 			$(window).resize(resizeHandler);
@@ -51,7 +50,7 @@ ZML.FactoryMap["ECHARTS"] = (function(){
 		function resizeHandler(e)
 		{
 			var ts = ZML.Application.instance().container.contentLayer.data("scale");
-			ts = Number(ts);
+			ts = ts == undefined ? 1 : Number(ts);
 			
 			switch(ZML.Application.instance().container.scaleStyle)
 			{
