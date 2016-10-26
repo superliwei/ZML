@@ -18,7 +18,7 @@ ZML.BasicNavigationManager = (function(){
 		for(var i=0;i<len;i++)
 		{
 			var child = $(this.children[i]);
-			var tx = this.controller.view.outerWidth()*i;
+			var tx = this.controller.view.width()*i;
 			child.css("left",tx+"px");
 			child.appendTo(this.ct);
 		}
@@ -47,7 +47,7 @@ ZML.BasicNavigationManager = (function(){
 	
 	BasicNavigationManager.prototype.showIdx = function(_idx)
 	{
-		var tx = -this.controller.view.outerWidth()*_idx;
+		var tx = -this.controller.view.width()*_idx;
 		try
 		{
 			TweenLite.to(this.ct,0.5,{x:tx,ease:Expo.easeInOut});

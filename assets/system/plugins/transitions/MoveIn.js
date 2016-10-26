@@ -8,8 +8,8 @@ ZML.Transition.MoveIn.prototype.start = function(manager,fromElem,toElem,onCompl
 	$(this.from).css("pointer-events","none");
 	$(this.to).css("pointer-events","none");
 	$(toElem).css("visibility","visible");
-	var w = manager.controller.view.outerWidth();
-	var h = manager.controller.view.outerHeight();
+	var w = manager.controller.view.width();
+	var h = manager.controller.view.height();
 	var dc = [];
 	dc["left"] = {from_x:0,from__x:w,from_y:0,from__y:0,to_x:-w,to__x:0,to_y:0,to__y:0};
 	dc["right"] = {from_x:0,from__x:-w,from_y:0,from__y:0,to_x:w,to__x:0,to_y:0,to__y:0};

@@ -9,21 +9,21 @@ ZML.Transition.Reverse = function()
 ZML.Transition.Reverse.prototype.start = function(manager,fromElem,toElem,onComplete)
 {
 	var self = this;
-	var w = manager.controller.view.outerWidth();
-	var h = manager.controller.view.outerHeight();
+	var w = manager.controller.view.width();
+	var h = manager.controller.view.height();
 
 	var ct0 = $("<div>");
 	ct0.css("position","absolute");
 	$(fromElem).appendTo(ct0);
-	ct0.outerWidth(w);
-	ct0.outerHeight(h);
+	ct0.width(w);
+	ct0.height(h);
 
 	var ct1 = $("<div>");
 	ct1.css("position","absolute");
 	$(toElem).css("visibility","visible");
 	$(toElem).appendTo(ct1);
-	ct1.outerWidth(w);
-	ct1.outerHeight(h);
+	ct1.width(w);
+	ct1.height(h);
 
 	var container = $("<div>");
 	container.css("position","absolute");
