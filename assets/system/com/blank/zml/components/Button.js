@@ -59,11 +59,6 @@ ZML.Button = (function(){
 		});
 	}
 	
-	Button.prototype.unbindEvents = function()
-	{
-		this.view.unbind("click");
-	}
-	
 	Button.prototype.effect = function(effectStr)
 	{
 		if(effectStr!=null)
@@ -94,19 +89,7 @@ ZML.Button = (function(){
 	{
 		this.buttonMode(bol);
 		this.alpha(bol?1:0.5);
-		if(bol)
-		{
-			this.bindEvents();
-			if(this.data.attr("effect")!=undefined)
-			{
-				this.effect(this.data.attr("effect"));
-			}
-		}
-		else
-		{
-			this.unbindEvents();
-			this.effect(null);
-		}
+		this.view.css("pointer-events",bol ? "" : "none");
 	}
 	
 	return Button;
