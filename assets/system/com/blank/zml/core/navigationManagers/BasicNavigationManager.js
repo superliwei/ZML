@@ -15,12 +15,18 @@ ZML.BasicNavigationManager = (function(){
 		this.ct = $("<div>");
 		this.ct.appendTo(this.controller.view);
 		this.ct.css("position","absolute");
+		
+		this.ct.width(len*100+"%");
+		this.ct.height("100%");
+		this.ct.css("display","flex");
+		
 		for(var i=0;i<len;i++)
 		{
+			var childBox = $("<div>");
+			childBox.css("flex-grow",1);
+			childBox.appendTo(this.ct);
 			var child = $(this.children[i]);
-			var tx = this.controller.view.width()*i;
-			child.css("left",tx+"px");
-			child.appendTo(this.ct);
+			child.appendTo(childBox);
 		}
 	}
 	
@@ -47,14 +53,14 @@ ZML.BasicNavigationManager = (function(){
 	
 	BasicNavigationManager.prototype.showIdx = function(_idx)
 	{
-		var tx = -this.controller.view.width()*_idx;
+		var tl = -_idx*100+"%";
 		try
 		{
-			TweenLite.to(this.ct,0.5,{x:tx,ease:Expo.easeInOut});
+			TweenLite.to(this.ct,0.5,{left:tl,ease:Expo.easeInOut});
 		}catch(e)
 		{
 			//trace(e.message);
-			this.ct.animate({left:tx},500);
+			this.ct.animate({left:tl},500);
 		}
 		this.controller.defaultIdx = _idx;
 	}
