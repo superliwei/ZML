@@ -24,10 +24,11 @@ ZML.BasicComponent = (function(){
 		var nodeName = nodeData.prop("nodeName").toUpperCase();
 		var Class = ZML.FactoryMap[nodeName];
 		var node = new Class();
-		node.view.bind(ZML.BasicCanvas.CONSTRUCT_COMPLETE,function(){
-			node.view.prependTo(self.view);
+		node.view.prependTo(this.view);
+		node.onReady = function()
+		{
 			self.childrenConstructComplete();
-		});
+		}
 		node.construct(nodeData);
 	}
 	

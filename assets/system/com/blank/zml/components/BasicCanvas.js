@@ -1,7 +1,5 @@
 ZML.BasicCanvas = (function(){
 	
-	BasicCanvas.CONSTRUCT_COMPLETE = "basicCanvasCreationComplete";
-
 	function BasicCanvas(sel)
 	{
 		if(sel == undefined)
@@ -189,23 +187,12 @@ ZML.BasicCanvas = (function(){
 	{
 		var self = this;
 		var len = this.data.children().length;
-		if(len>0)
-		{
-			createIdx(0);
-		}
-		else
-		{
-			self.constructComplete();
-		}
+		len > 0 ? createIdx(0) : this.constructComplete();
 	
 		function createIdx(_idx)
 		{
-			if(_idx == len)
-			{
-				self.constructComplete();
-				return;
-			}
-			var nodeData = self.data.children()[_idx];
+			if(_idx == len)return self.constructComplete();
+			var nodeData = self.data.children().get(_idx);
 			var nodeName = nodeData.nodeName.toUpperCase();
 			var Class = ZML.FactoryMap[nodeName];
 			if(Class == undefined)
@@ -217,19 +204,21 @@ ZML.BasicCanvas = (function(){
 				var node = new Class();
 				if(node.view!=undefined)
 				{
-					node.view.bind(BasicCanvas.CONSTRUCT_COMPLETE,function(){
-						node.view.appendTo(self.view);
+					node.view.appendTo(self.view);
+					node.onReady = function()
+					{
 						nextIdx(_idx);
-					});
+					}
+					node.construct($(nodeData));
 				}
-				node.construct($(nodeData));
-				if(node.view == undefined)
+				else
 				{
+					node.construct($(nodeData));
 					nextIdx(_idx);
 				}
 			}
 		}
-	
+		
 		function nextIdx(_idx)
 		{
 			_idx++;
@@ -240,7 +229,7 @@ ZML.BasicCanvas = (function(){
 	BasicCanvas.prototype.constructComplete = function()
 	{
 		ZML.BroadcastCenter.sendEvent(this.data.children("Ready").prop("outerHTML"));
-		this.view.trigger(BasicCanvas.CONSTRUCT_COMPLETE);
+		if(this.onReady != undefined)this.onReady();
 	}
 	
 	BasicCanvas.prototype.buttonMode = function(bol)
@@ -276,4 +265,3 @@ ZML.BasicCanvas = (function(){
 	return BasicCanvas;
 	
 })();
-

@@ -21,13 +21,20 @@ ZML.Application = (function(){
 		app.container = new ZML.RootContainer(info);
 		
 		ZML.BroadcastCenter.addEventListener(ZML.CoreEvent.APP_DATA_READY,function(){
-			app.view.one(ZML.BasicCanvas.CONSTRUCT_COMPLETE,function(){
+			app.onReady = function()
+			{
 				ZML.AssetsManager.assetsLoadStart();
-			});
+			}
+			app.view.css("visibility","hidden");
+			app.view.css("opacity",0);
+			app.view.css("pointer-events","none");
+			app.view.appendTo(app.container.contentLayer);
 			app.construct($(ZML.AssetsManager.appData).last());
 		});
 		ZML.BroadcastCenter.addEventListener(ZML.CoreEvent.ASSETS_READY,function(){
-			app.view.appendTo(app.container.contentLayer);
+			app.view.css("visibility","");
+			app.view.css("pointer-events","");
+			app.view.css("opacity",1);
 			ZML.BroadcastCenter.sendEvent(app.data.children("Add").prop("outerHTML"));
 		});
 	}
