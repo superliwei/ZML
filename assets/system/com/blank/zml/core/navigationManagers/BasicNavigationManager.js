@@ -24,6 +24,7 @@ ZML.BasicNavigationManager = (function(){
 		{
 			var childBox = $("<div>");
 			childBox.css("flex-grow",1);
+			childBox.css("position","relative");
 			childBox.appendTo(this.ct);
 			var child = $(this.children[i]);
 			child.appendTo(childBox);
